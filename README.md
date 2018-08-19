@@ -148,3 +148,6 @@ class MiComponente extends Components{
 }
 ```
 
+##Spread Operator
+https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Spread_operator
+
