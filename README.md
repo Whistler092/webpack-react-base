@@ -39,3 +39,27 @@ Media.propTypes = {
   type: PropTypes.oneOf(['video', 'audio'])
 }
 ```
+
+## Enlazando eventos del DOM
+```
+Para enlazar los eventos que reaccionen a un click dentro de los componentes, hay que utilizar onClick (on + el evento) y a esta le asignamos una función a ejecutar handleClick dentro del elemento que va a lanzar el evento.
+
+<divclassName="Media"onClick={this.handleClick}>
+
+Para enlazar las propiedades (props) de nuestro componente a la clase Media, hay que utilizar el metodo constructor pasandole props y usando el metodo super tambien con las props como parametro.
+
+Es necesario cambiar el contexto de la función handleClick, para eso utilizamos bind(this).
+
+constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+}
+Con ES7, en lugar de estar bindeando cada función de nuestro componente, podemos utilizar arrow functions.
+
+handleClick = (event) => {
+    console.log(this.props.title);
+}
+A handleClick le asignamos una arrow function que recibe el evento y realiza las acciones.
+Esto funciona debido a que las arrow functions hederan el contexto del padre, así no es necesario bindear.
+
+```
