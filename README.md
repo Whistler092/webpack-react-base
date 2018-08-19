@@ -1,5 +1,7 @@
 ## Profundizar React
 “React in Patterns” Krasimir Tsonev.
+https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Spread_operator
+https://reactjs.org/docs/handling-events.html
 
 ## ¿Que es un Component?
 
@@ -8,6 +10,7 @@ Documentacion Oficial.
 
 ## ¿Tipos de Components?
 
+```
 Funcional: Este tipo de componentes se definen como funciones y no tiene ni trabajan con estados.
 
 Puro: También se implementan como clases, pero en este caso van a extender de React.PureComponent.
@@ -15,8 +18,9 @@ Puro: También se implementan como clases, pero en este caso van a extender de R
 Normal o de Estado: Las principales características de este tipo de componentes es que utilizan la encapsulación en clases, tienen un estado que definen, y actualizan.
 
 Nota: Los componentes Funcionales se utilizan para codear la UI mientras que el Normal o el Puro se utiliza para codear la “logica”.
+```
 
-##PropTypes
+## PropTypes
 $ npm install prop-types --save
 ```
 
@@ -65,3 +69,82 @@ A handleClick le asignamos una arrow function que recibe el evento y realiza las
 Esto funciona debido a que las arrow functions hederan el contexto del padre, así no es necesario bindear.
 
 ```
+
+## El estado 
+```
+Las propiedades (props) son inmutables, es decir; estas no pueden cambiar. En el caso que quisiéramos que algo cambie en nuestro componente, hay que manejarlo con el estado de nuestros componentes, el cual permite tener contenido dinámico.
+
+Para inicializar el estado tenemos que hacer uso de nuestro metodo constructor:
+
+constructor(props){
+    super(props);
+    this.state = {
+        author: props.author
+    }
+}
+Y en nuestros elementos vamos a utilizar state en lugar de props:
+
+<p className="Media-author">{this.state.author}</p>
+Para cambiar el estado tenemos un método especifico setSate() al cual le pasamos los valores que queremos modificar en nuestro estado.
+
+handleClick = (event) => {
+    this.setState({
+        author: 'Emmanuel Alonso'
+    })
+}
+Con ES7 podemos hacer definir el estado directamente, en lugar de usar el constructor:
+
+state = {
+    author: 'Ivan Robles'
+}
+```
+
+## Ciclo de vida de un componente 
+
+```
+class MiComponente extends Components{
+
+	constructor(){
+	// Enlazo (bind) eventos y/o inicializo estado
+	}
+	componentWillMount(){
+	// Se ejecuta antes de montar el componente
+	// Se podría usar para hacer un setState()
+	}
+	render(){
+	// Contiene todos los elementos a renderizar
+	// podrías usarlo para calcular propiedades (ej: concatenar una cadena)
+	}
+	componentDidMount(){
+	//Solo se lanza una vez
+	//Ideal para llamar a una API, hacer un setInteval, etc
+	}
+
+	//Actualización:
+	componentWillReceiveProps(){
+	//Es llamado cuando el componente recibe nuevas propiedades.
+
+	}
+	shouldComponentUpdate(){
+	//Idea para poner una condición y  si las propiedades que le llegaron anteriormente
+	// eran las mismas que tenia retornar false para evitar re-renderear el componente
+	}
+	componentWillUpdate(){
+	//metodo llamado antes de re-renderizar el componente si shouldComponentUpdate devolvió true
+	}
+
+	// re-render si es necesario...
+
+	componentDidUpdate(){
+	//Método llamado luego del re-render
+	}
+	componentWillUnmount(){
+	//Método llamado antes de desmontar el componente
+	}
+	componentDidCatch(){
+	// Si ocurre algún error, lo capturo desde acá:
+	}
+
+}
+```
+
