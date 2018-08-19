@@ -42,6 +42,8 @@ Media.propTypes = {
 
 ## Enlazando eventos del DOM
 ```
+https://reactjs.org/docs/handling-events.html
+
 Para enlazar los eventos que reaccionen a un click dentro de los componentes, hay que utilizar onClick (on + el evento) y a esta le asignamos una función a ejecutar handleClick dentro del elemento que va a lanzar el evento.
 
 <divclassName="Media"onClick={this.handleClick}>
