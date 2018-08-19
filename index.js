@@ -4,4 +4,7 @@ import Media from './src/playlist/components/media';
 
 const app = document.getElementById("app");
 
-render(<Media />, app);
+render(<Media 
+        title="¿Qué es responsive design?"
+        author="Ramiro Bedoya"
+        image="./images/covers/responsive.jpg" />, app);
