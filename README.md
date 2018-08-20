@@ -267,3 +267,15 @@ Si tenemos algún servicio como Sentry, hay que enviarlo para que ese error sea 
 
 Ya que es posible que si hay algún error recibiendo los datos es probable que en lugar de cambiar algún componente lo que se deba cambiar es la API. De esa manera se puede saber por donde va el arreglo, si por Backend o por Frontend.
 ```
+
+
+## Configuración de Webpack para mostrar el error en el archivo en especifico
+
+https://webpack.js.org/configuration/devtool/
+
+```
+Para una mejor depuración de errores, se puede activar en webpack la configuración:
+
+devtool:'eval-source-map'
+al mismo nivel de module
+```
