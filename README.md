@@ -279,3 +279,6 @@ Para una mejor depuración de errores, se puede activar en webpack la configurac
 devtool:'eval-source-map'
 al mismo nivel de module
 ```
+## Duración del video
+
+* https://reactjs.org/docs/events.html
