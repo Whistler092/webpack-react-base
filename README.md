@@ -252,3 +252,18 @@ home - entry point para webpack
   }
 
 ```
+
+## Manejo de errores
+```
+
+El metodo componentDidCatch pide dos parámetros al momento de ejecutarse:
+
+El Error
+Información acerca de ese error
+componentDidCatch(error, info) {
+
+}
+Si tenemos algún servicio como Sentry, hay que enviarlo para que ese error sea monitorizado y luego con el team de desarrollo este sea solucionado.
+
+Ya que es posible que si hay algún error recibiendo los datos es probable que en lugar de cambiar algún componente lo que se deba cambiar es la API. De esa manera se puede saber por donde va el arreglo, si por Backend o por Frontend.
+```
