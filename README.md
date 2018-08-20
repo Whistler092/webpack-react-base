@@ -170,3 +170,65 @@ functionPlaylist(props) {
   return<Componentetitle={props.title} />
 }
 ```
+
+## Smart Components & Dumb Components
+
+```
+https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
+
+Presentacional Cómo se ve
+
+Puede contener smart components u otros componentes de UI
+Permiten composición con `[props.children]``
+No depeden del resto de la aplicación
+No especifica cómo los datos son cargados o mutados
+Recibe datos y callbacks solo con propiedades
+Rara vez tienen su propio estado
+Están escritos como componentes funcionales a menos que necesiten mejoras de performance. Sólo pueden ser Componentes funcionales o Pure Components
+Containers Qué hace
+
+Concetrado en el funcionamiento de la aplicación
+Contienen componentes de UI u otros containers
+No tienen estilos
+Proveen de datos a componentes de UI u otros contenedores
+Proveen de callbacks a la UI
+Normalmente tienen estado
+Llaman acciones
+Generados por higher order components
+```
+
+## Estructura del proyecto con Containers y UI components: layout de nuestro sitio web
+
+```
+Platzi-Video <3
+==============
+home - entry point para webpack
+
+  Home - página / (container|smart)
+    -> <!-- Layout - UI -->
+      -> Related - UI
+      -> Categories - UI
+         -> Category - UI
+            -> Playlist - UI
+               -> Media - UI / Pure
+      -> Search / (container|smart)
+         -> <!-- Search Layout UI -->
+            -> Input - UI
+      -> Modal - (container|smart)
+        -> <!-- Layout - UI -->
+          -> VideoPlayer - (container|smart)
+            <!-- Layout -->
+             -> Video - UI state
+             -> Spinner - UI
+             -> Controls - UI
+                -> PlayPause - UI
+                  -> PlayIcon - UI
+                  -> PauseIcon - UI
+                -> Timer - UI
+                -> ProgressBar - UI
+                -> Volume - UI
+                  -> VolumeIcon - UI
+                -> FullScreen - UI
+                  -> FullScreenIcon - UI
+```
+
