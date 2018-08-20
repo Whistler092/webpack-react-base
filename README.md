@@ -231,4 +231,24 @@ home - entry point para webpack
                 -> FullScreen - UI
                   -> FullScreenIcon - UI
 ```
+## Portales
+```
+  Portales es la manera en la que podemos renderizar componentes fuera del contenedor principal de la aplicación.
 
+  <div id="App"></div>
+  El caso de uso mas común son las ventanas modal.
+
+  Para crear un portal, se debe importar el metodo createPortal de react-dom:
+
+  import { createPortal} from'react-dom';
+  El metodo createPortal() recibe dos parametros, al igual que con render es Lo que se va a renderizar y donde se va a renderizar:
+
+  classModalContainerextendsComponent{
+    render() {
+      return (
+        createPortal(<Component />, document.getElementById('component-container'))
+      )
+    }
+  }
+
+```

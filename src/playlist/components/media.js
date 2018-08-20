@@ -4,15 +4,15 @@ import './media.css';
 
 class Media extends PureComponent {
 
-    handleClick = (event) => {
+   /*  handleClick = (event) => {
         this.setState({
             author: 'Leonidas Esteban'
         })
-    }
+    } */
 
     render(){        
         return (
-            <div className="Media"  onClick={this.handleClick}>
+            <div className="Media"  onClick={this.props.handleOpenModal}>
                 <div className="Media-cover"> 
                     <img className="Media-image"
                         src={this.props.cover}
