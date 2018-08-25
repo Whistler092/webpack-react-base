@@ -3,7 +3,6 @@ import Category from './category';
 import './categories.css';
 import SearchContaner from '../../widgets/containers/search';
 
-
 function Categories(props){
     return (
         <div className="Categories">
