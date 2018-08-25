@@ -38,7 +38,8 @@ class Home extends Component {
                     <Related />
                     <Categories
                         categories={this.props.categories}
-                        handleOpenModal={this.handleOpenModal} />
+                        handleOpenModal={this.handleOpenModal} 
+                        search={this.props.search} />
                     {
                         this.state.modalVisible
                         &&
@@ -61,7 +62,8 @@ class Home extends Component {
 function mapStateToProps(state, props){
     //Aquì se le envian los datos le quiero enviar a mi componente como nuevas propiedades
     return {
-        categories : state.data.categories
+        categories : state.data.categories,
+        search : state.search
     }
 
 }

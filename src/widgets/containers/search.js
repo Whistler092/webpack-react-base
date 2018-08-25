@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+
 import Search from '../components/search';
 
 class SearchContaner extends Component {
 
     state = {
-        value: 'Responsive Design'
+        value: ''
     }
     handleSubmit = event => {
         event.preventDefault();
         console.log('submit', event);
         console.log(this.input.value);
-        
+        this.props.dispatch({
+            type: 'SEARCH_VIDEO',
+            payload: {
+                query: this.input.value
+            }
+        })
     }
 
     setInputRef = element => {
@@ -34,4 +42,4 @@ class SearchContaner extends Component {
     }
 }
 
-export default SearchContaner;
+export default connect()(SearchContaner);

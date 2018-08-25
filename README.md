@@ -296,3 +296,6 @@ Resume del flujo de eventos
 * en la función (handle) recibida por store.subscribe(handle) se invoca la actualización de la UI a partir del nuevo estado creado
 * queda establecido el nuevo estado(state) y queda de nuevo atento el evento (listener) en la UI
 LISTO.
+
+## Documentación de la librería: https://github.com/paularmstrong/normalizr
+
