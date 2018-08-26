@@ -370,3 +370,10 @@ Es una forma de poder interceptar lo que está sucediendo con (redux) para mejor
 
 
 ```
+
+https://github.com/xgrommx/awesome-redux
+
+https://sergiodxa.gitbooks.io/redux-en-espanol/content/
+https://egghead.io/courses/getting-started-with-redux
+
+https://github.com/reduxjs/redux-thunk

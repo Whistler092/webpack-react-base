@@ -15,7 +15,8 @@ class SearchContaner extends Component {
         event.preventDefault();
         /* console.log('submit', event);
         console.log(this.input.value); */
-        this.props.actions.searchEntities(this.input.value)
+        //this.props.actions.searchEntities(this.input.value)
+        this.props.actions.searchAsyncEntities(this.input.value);
     }
 
     setInputRef = element => {

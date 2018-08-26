@@ -1,4 +1,8 @@
-import { SEARCH_VIDEO, CLOSE_MODAL, OPEN_MODAL } from '../action-types/index';
+import { SEARCH_VIDEO,
+            SEARCH_ASYNC_VIDEO, 
+            CLOSE_MODAL, 
+            OPEN_MODAL, 
+            IS_LOADING} from '../action-types/index';
 
 export function openModal(mediaId){
     return {
@@ -22,4 +26,32 @@ export function searchEntities(query){
             query
         }
     }
+}
+
+export function isLoading(value){
+    return {
+        type: IS_LOADING,
+        payload: {
+            value
+        }
+    }
+}
+
+export function searchAsyncEntities(query){
+    return (dispatch) => {
+        //fetch()
+        dispatch(isLoading(true))
+
+        setTimeout(() => {
+            dispatch(isLoading(false))
+            dispatch(searchEntities(query))    
+        }, 5000);
+    }
+    /* 
+    {
+        type: SEARCH_ASYNC_VIDEO,
+        payload: {
+            query
+        }
+    } */
 }
