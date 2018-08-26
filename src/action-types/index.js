@@ -1,0 +1,7 @@
+
+
+const SEARCH_VIDEO = 'SEARCH_VIDEO';
+
+const OPEN_MODAL = 'OPEN_MODAL';
+
+const CLOSE_MODAL = 'CLOSE_MODAL';

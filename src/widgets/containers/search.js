@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Search from '../components/search';
-import { searchEntities } from '../../actions';
+import * as actions from '../../actions';
+import { bindActionCreators } from 'redux';
 
 class SearchContaner extends Component {
 
@@ -14,7 +15,7 @@ class SearchContaner extends Component {
         event.preventDefault();
         /* console.log('submit', event);
         console.log(this.input.value); */
-        this.props.dispatch(searchEntities(this.input.value))
+        this.props.actions.searchEntities(this.input.value)
     }
 
     setInputRef = element => {
@@ -38,4 +39,10 @@ class SearchContaner extends Component {
     }
 }
 
-export default connect()(SearchContaner);
+function mapDispatchToProps(dispatch){
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SearchContaner);

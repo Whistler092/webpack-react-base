@@ -355,3 +355,18 @@ classHomeextendsComponent{
 Pueden ver el resumen completo del curso https://github.com/MineiToshio/CursosPlatzi/tree/master/Curso%20de%20Redux.
 Pueden ver mi lista de resúmenes https://github.com/MineiToshio/CursosPlatzi.
 ```
+
+## Middlewares
+
+```
+*  Middlewares
+Es una forma de poder interceptar lo que está sucediendo con (redux) para mejorarlo y/o modificarlo.
+
+* Componentes del Middleware
+
+- Recibe el dispatch y el getState como argumentos y retorna una función.
+
+ - Esta función recibe el método para despachar el siguiente middleware; se espera que retorne una función que recibe action y llame a next(action)
+
+
+```

@@ -1,5 +1,7 @@
 import schema from '../schemas/index'
 import { fromJS } from 'immutable';
+import { SEARCH_VIDEO } from '../action-types/index';
+
 
 const initialState = fromJS({
   entities: schema.entities,
@@ -9,7 +11,7 @@ const initialState = fromJS({
 
 function data(state = initialState, action) {
     switch (action.type) {
-        case 'SEARCH_VIDEO': {
+        case SEARCH_VIDEO: {
             // action.payload.query
             /* let results = [];
             if (action.payload.query) {

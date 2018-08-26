@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { List as list } from 'immutable' 
 
-import { openModal, closeModal } from '../../actions';
+import * as actions from '../../actions';
 
 import HomeLayout from '../components/home-layout';
 import Categories from '../../categories/components/categories';
@@ -21,7 +22,7 @@ class Home extends Component {
     } */
 
     handleOpenModal = (id) => {
-        this.props.dispatch(openModal(id))
+        this.props.actions.openModal(id)
         /* this.setState({
             modalVisible: true,
             media
@@ -32,7 +33,7 @@ class Home extends Component {
         this.setState({
             modalVisible: false
         }) */
-        this.props.dispatch(closeModal())
+        this.props.actions.closeModal();
     }
 
     render() {
@@ -87,5 +88,10 @@ function mapStateToProps(state, props){
     }
 
 }
+function mapDispatchToProps (dispatch) {
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    }
+}
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
