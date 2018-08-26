@@ -8,13 +8,15 @@ import { Provider } from 'react-redux';
 import reducer from '../reducers/data';
 
 import Home from '../pages/containers/home';
-import data from '../api.json';
-import normalizedData from '../schemas/index';
+// import data from '../api.json';
+import data from '../schemas/index';
 
 
 const initialState = {
     data: {
-        ...data,        
+        //...data,        
+        entities: data.entities,
+        categories: data.result.categories
     },
     search: []
 }
@@ -24,8 +26,8 @@ const store = createStore(
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-console.log("initial data",store.getState());
-console.log("normalizedData",normalizedData);
+// console.log("initial data",store.getState());
+// console.log("normalizedData",normalizedData);
 
 const homeContainer = document.getElementById("home-container");
 
