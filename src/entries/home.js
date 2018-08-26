@@ -9,7 +9,7 @@ import reducer from '../reducers/data';
 
 import Home from '../pages/containers/home';
 import data from '../api.json';
-
+import normalizedData from '../schemas/index';
 
 
 const initialState = {
@@ -24,7 +24,8 @@ const store = createStore(
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-console.log(store.getState());
+console.log("initial data",store.getState());
+console.log("normalizedData",normalizedData);
 
 const homeContainer = document.getElementById("home-container");
 

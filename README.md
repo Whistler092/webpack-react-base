@@ -297,5 +297,8 @@ Resume del flujo de eventos
 * queda establecido el nuevo estado(state) y queda de nuevo atento el evento (listener) en la UI
 LISTO.
 
-## Documentación de la librería: https://github.com/paularmstrong/normalizr
+## normalizr
+
+npm install --save normalizr
+Documentación de la librería: https://github.com/paularmstrong/normalizr
 
