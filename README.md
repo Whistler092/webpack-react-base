@@ -302,3 +302,56 @@ LISTO.
 npm install --save normalizr
 Documentación de la librería: https://github.com/paularmstrong/normalizr
 
+## Immutable.js
+
+npm install immutable redux-immutable --save
+https://facebook.github.io/immutable-js/
+
+métodos básicos de immutableJS sobre un mapa (objeto mapeado).
+
+mapa.get('key'): Obtiene el valor de ‘key’ en el mapa.
+
+mapa.getIn(['key','sub-key']): Obtiene el valor de ‘sub-key’, que es un mapa hijo (de segundo nivel) asociado a ‘key’ en el mapa original.
+
+mapa.set('key','valor'): Retorna un nuevo mapa donde el valor de ‘key’ ha sido remplazado por ‘valor’.
+
+mapa.merge({key1:'valor1',key2:'valor2'}): Retorna un nuevo mapa que es el resultado de mezclar (consolidar) el mapa original y el mapa pasado por parametro como objeto.
+
+## Acciones
+Creadores de Acciones
+Son funciones que engloban acciones y retornan el texto de la acción.
+
+```
+exportfunctionopenModal(mediaId) {
+  return {
+    type: 'OPEN_MODAL',
+    payload: {
+      mediaId
+    }
+  }
+}
+
+exportfunctioncloseModal() {
+  return {
+    type: 'CLOSE_MODAL'
+  }
+}
+Uso:
+
+//otra imports
+import { openModal, closeModal } from'./actions/index';
+
+classHomeextendsComponent{
+  handleOpenModal = (id) => {
+    this.props.dispatch(openModal(id))
+  }
+
+  handleCloseModal = (event) => {
+    this.props.dispatch(closeModal())
+  }
+
+  //aquí va más código
+}
+Pueden ver el resumen completo del curso https://github.com/MineiToshio/CursosPlatzi/tree/master/Curso%20de%20Redux.
+Pueden ver mi lista de resúmenes https://github.com/MineiToshio/CursosPlatzi.
+```

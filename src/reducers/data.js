@@ -1,10 +1,17 @@
+import schema from '../schemas/index'
+import { fromJS } from 'immutable';
 
+const initialState = fromJS({
+  entities: schema.entities,
+  categories: schema.result.categories,
+  search: ''
+})
 
-function data(state, action) {
+function data(state = initialState, action) {
     switch (action.type) {
         case 'SEARCH_VIDEO': {
             // action.payload.query
-            let results = [];
+            /* let results = [];
             if (action.payload.query) {
               const categories = state.data.categories
               categories.map(category => {
@@ -18,7 +25,8 @@ function data(state, action) {
             return {
               ...state,
               search: results
-            }
+            } */
+            return state.set('search', action.payload.query);
         }
         default:
             return state;

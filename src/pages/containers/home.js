@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
+import { List as list } from 'immutable' 
+
+import { openModal, closeModal } from '../../actions';
 
 import HomeLayout from '../components/home-layout';
 import Categories from '../../categories/components/categories';
@@ -12,22 +16,23 @@ import VideoPlayer from '../../player/container/video-player';
 
 class Home extends Component {
 
-    state = {
+    /* state = {
         modalVisible: false,
+    } */
 
-    }
-
-    handleOpenModal = (media) => {
-        this.setState({
+    handleOpenModal = (id) => {
+        this.props.dispatch(openModal(id))
+        /* this.setState({
             modalVisible: true,
             media
-        })
+        }) */
     }
     handleCloseModal = (event) => {
-        console.log("handleCloseModal");
+        /* console.log("handleCloseModal");
         this.setState({
             modalVisible: false
-        })
+        }) */
+        this.props.dispatch(closeModal())
     }
 
     render() {
@@ -41,14 +46,15 @@ class Home extends Component {
                         handleOpenModal={this.handleOpenModal} 
                         search={this.props.search} />
                     {
-                        this.state.modalVisible
+                        this.props.modal.get('visibility')
                         &&
                         <ModalContainer >
                             <Modal
                                 handleCloseModal={this.handleCloseModal}>
                                <VideoPlayer 
-                                    src={this.state.media.src}
-                                    title={this.state.media.title}
+                                    id={this.props.modal.get('mediaId')}
+                                    //src={this.state.media.src}
+                                    //title={this.state.media.title}
                                     autoplay />
                             </Modal>
                         </ModalContainer>
@@ -61,13 +67,23 @@ class Home extends Component {
 
 function mapStateToProps(state, props){
     //Aquì se le envian los datos le quiero enviar a mi componente como nuevas propiedades
-    const categories = state.data.categories.map((categoryId) => {
-        return state.data.entities.categories[categoryId]
+    const categories = state.get('data').get('categories').map((categoryId) => {
+        return state.get('data').get('entities').get('categories').get(categoryId)
     })
+
+    let searchResults = list()
+    const search = state.get('data').get('search').toLowerCase();
+    if (search){
+        const mediaList = state.get('data').get('entities').get('medias');
+        searchResults = mediaList.filter((item) => (
+            item.get('author').toLowerCase().includes(search)
+        )).toList();
+    }
 
     return {
         categories : categories,
-        search : state.search
+        search : searchResults,
+        modal: state.get('modal')
     }
 
 }

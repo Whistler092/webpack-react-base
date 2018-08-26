@@ -10,12 +10,13 @@ function Categories(props) {
             <SearchContaner />
             {
                 props.search.map((item) => {
-                    return <Media {...item} key={item.id} />
+                    return <Media openModal={props.handleOpenModal} 
+                            {...item.toJS()} key={item.get('id')} />
                 })
             }
             {
                 props.categories.map((item) => {
-                    return <Category key={item.id} {...item}
+                    return <Category key={item.get('id')} {...item.toJS()}
                         handleOpenModal={props.handleOpenModal} />
                 })
             }

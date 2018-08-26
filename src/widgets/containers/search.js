@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Search from '../components/search';
+import { searchEntities } from '../../actions';
 
 class SearchContaner extends Component {
 
@@ -11,14 +12,9 @@ class SearchContaner extends Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        console.log('submit', event);
-        console.log(this.input.value);
-        this.props.dispatch({
-            type: 'SEARCH_VIDEO',
-            payload: {
-                query: this.input.value
-            }
-        })
+        /* console.log('submit', event);
+        console.log(this.input.value); */
+        this.props.dispatch(searchEntities(this.input.value))
     }
 
     setInputRef = element => {
