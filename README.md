@@ -377,3 +377,18 @@ https://sergiodxa.gitbooks.io/redux-en-espanol/content/
 https://egghead.io/courses/getting-started-with-redux
 
 https://github.com/reduxjs/redux-thunk
+
+
+## React Router
+
+Instalando dependencias
+Además de haber realizado los cursos de React y Redux, es necesario haber tomado el Curso de Webpack pues estaremos configurando un par de cosas en Webpack.
+
+Para empezar, debemos descargar el proyecto de PlatziVideo de su repositorio en GitHub. Una vez descargado vamos a la carpeta del proyecto y corremos el comando:
+
+npm install
+Dentro de nuestro proyecto encontraremos el archivo package.json, el cual nos servirá para, entre otras cosas, poder ver las dependencias de nuestro proyecto. Para este curso estaremos trabajando con la versión 16.4.2 de react y react-dom.
+
+Las dependencias de React Router que vamos a usar se encuentran en el repositorio de React Router, básicamente necesitaremos react-router que es el núcleo de React Router y react-router-dom que son cosas que solo sirven en el navegador. Para instalar las dependencias corremos el comando:
+
+npm install react-router react-router-dom --save
